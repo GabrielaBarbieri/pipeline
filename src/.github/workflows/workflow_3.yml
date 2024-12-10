@@ -1,0 +1,13 @@
+name: workflow 3
+on: issue
+# quando ocorrer algo na issue, esse workflow será disparado
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+
+    steps:
+    -name: output github context
+    # usar o echo com o context do github para gerar metadados
+    
+     run: "${{toJSON(github)}}"

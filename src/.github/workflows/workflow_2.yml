@@ -1,0 +1,31 @@
+name: workflow 2
+on: push
+
+# first option: four jobs
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+
+    steps:
+    -name: Code download
+     uses: action/checkout@v3
+
+    -name: install dependences
+     run: npm ci
+
+  execute lint:
+    -name: execute lint
+     run: npm lint
+
+  execute test:
+    -name: execute tests
+     run: npm test
+
+  execute build and deploy:
+    -name: build project
+     run: npm build
+
+    -name: deploy project
+     echo: "deploy in the server"
+    
