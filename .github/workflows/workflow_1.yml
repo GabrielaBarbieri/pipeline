@@ -10,23 +10,23 @@ jobs:
 
     steps:
       -name: Get Code
-      uses: action/checkout@v3
+       uses: action/checkout@v3
 
       -name: install dependences
-      run: npm ci
+       run: npm ci
       #  run allow execute command in shell
       # npm ci pega exatamente as mesmas versões que usamos durante o desenvolvimento, diferente do npm install, que pega as mais recentes.
 
       -name: execute lint
-      run: npm run lint
+       run: npm run lint
       #  npm run para executar os scripts do package.json
 
       -name: execute tests
-      run: npm run test
+       run: npm run test
 
       -name: build project
-      run: npm run build
+       run: npm run build
 
       -name: deploy project
-      run: echo "deploy in the server"
+       run: echo "deploy in the server"
       
