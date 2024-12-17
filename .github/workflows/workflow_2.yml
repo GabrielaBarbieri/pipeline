@@ -10,19 +10,19 @@ jobs:
 
     steps:
       -name: Code download
-      uses: action/checkout@v3
+       uses: actions/checkout@v3
 
       -name: install dependences
-      run: npm ci
+       run: npm ci
 
       -name: execute lint
-      run: npm lint
+       run: npm lint
 
   execute test:
     runs-on: ubuntu-latest
     steps:
       -name: Code download
-      uses: action/checkout@v3
+      uses: actions/checkout@v3
 
       -name: install dependences
       run: npm ci
@@ -34,14 +34,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -name: Code download
-      uses: action/checkout@v3
+       uses: actions/checkout@v3
 
       -name: install dependences
-      run: npm ci
+       run: npm ci
 
       -name: build project
-      run: npm build
+       run: npm build
 
       -name: deploy project
-      echo: "deploy in the server"
+       echo: "deploy in the server"
       
