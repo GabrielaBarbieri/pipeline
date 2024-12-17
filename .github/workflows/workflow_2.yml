@@ -9,35 +9,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    -name: Code download
-     uses: action/checkout@v3
+      -name: Code download
+      uses: action/checkout@v3
 
-    -name: install dependences
-     run: npm ci
+      -name: install dependences
+      run: npm ci
 
-    -name: execute lint
-     run: npm lint
+      -name: execute lint
+      run: npm lint
 
   execute test:
-    -name: Code download
-     uses: action/checkout@v3
+    runs-on: ubuntu-latest
+    steps:
+      -name: Code download
+      uses: action/checkout@v3
 
-    -name: install dependences
-     run: npm ci
+      -name: install dependences
+      run: npm ci
 
-    -name: execute tests
-     run: npm test
+      -name: execute tests
+      run: npm test
 
   execute build and deploy:
-    -name: Code download
-     uses: action/checkout@v3
+    runs-on: ubuntu-latest
+    steps:
+      -name: Code download
+      uses: action/checkout@v3
 
-    -name: install dependences
-     run: npm ci
+      -name: install dependences
+      run: npm ci
 
-    -name: build project
-     run: npm build
+      -name: build project
+      run: npm build
 
-    -name: deploy project
-     echo: "deploy in the server"
-    
+      -name: deploy project
+      echo: "deploy in the server"
+      
