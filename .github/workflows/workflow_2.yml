@@ -1,47 +1,42 @@
 name: workflow 2
 on: push
 
-# second option: three jobs
-
 jobs:
-  
-  execute lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      -name: Code download
-       uses: actions/checkout@v3
-
-      -name: install dependences
-       run: npm ci
-
-      -name: execute lint
-       run: npm lint
-
-  execute test:
+  execute-lint:  # Não pode ter espaços no nome
     runs-on: ubuntu-latest
     steps:
-      -name: Code download
-      uses: actions/checkout@v3
+      - name: Code download
+        uses: actions/checkout@v3
 
-      -name: install dependences
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-      -name: execute tests
-      run: npm test
+      - name: Execute lint
+        run: npm run lint
 
-  execute build and deploy:
+  execute-test:
     runs-on: ubuntu-latest
     steps:
-      -name: Code download
-       uses: actions/checkout@v3
+      - name: Code download
+        uses: actions/checkout@v3
 
-      -name: install dependences
-       run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-      -name: build project
-       run: npm build
+      - name: Execute tests
+        run: npm test
 
-      -name: deploy project
-       echo: "deploy in the server"
-      
+  execute-build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code download
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy project
+        run: echo "Deploying to the server"
