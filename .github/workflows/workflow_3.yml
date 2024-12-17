@@ -1,5 +1,5 @@
 name: workflow 3
-on: issue
+on: issues
 # quando ocorrer algo na issue, esse workflow será disparado
 
 jobs:
@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    -name: output github context
-    # usar o echo com o context do github para gerar metadados
+    -name: output event details
+    # usar o echo com o context do github para gerar metadados/ outputs do event
     
-     run: "${{toJSON(github)}}"
+     run: echo "${{toJSON(github.event)}}"

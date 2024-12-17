@@ -1,10 +1,11 @@
 name: workflow 2
 on: push
 
-# first option: four jobs
+# second option: three jobs
 
 jobs:
-  info:
+  
+  execute lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,15 +15,26 @@ jobs:
     -name: install dependences
      run: npm ci
 
-  execute lint:
     -name: execute lint
      run: npm lint
 
   execute test:
+    -name: Code download
+     uses: action/checkout@v3
+
+    -name: install dependences
+     run: npm ci
+
     -name: execute tests
      run: npm test
 
   execute build and deploy:
+    -name: Code download
+     uses: action/checkout@v3
+
+    -name: install dependences
+     run: npm ci
+
     -name: build project
      run: npm build
 

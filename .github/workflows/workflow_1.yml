@@ -2,27 +2,31 @@ name: workflow 1
 on: push
 
 # first option: only a job
-
+# Try to connect with user 
 jobs:
+  # the name
   info:
     runs-on: ubuntu-latest
 
     steps:
-    -name: Code download
+    -name: Get Code
      uses: action/checkout@v3
 
     -name: install dependences
      run: npm ci
+    #  run allow execute command in shell
+    # npm ci pega exatamente as mesmas versões que usamos durante o desenvolvimento, diferente do npm install, que pega as mais recentes.
 
     -name: execute lint
-     run: npm lint
+     run: npm run lint
+    #  npm run para executar os scripts do package.json
 
     -name: execute tests
-     run: npm test
+     run: npm run test
 
     -name: build project
-     run: npm build
+     run: npm run build
 
     -name: deploy project
-     echo: "deploy in the server"
+     run: echo "deploy in the server"
     
