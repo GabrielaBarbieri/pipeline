@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    -name: output event details
+    - name: output event details
     # usar o echo com o context do github para gerar metadados/ outputs do event
     
-     run: echo "${{toJSON(github.event)}}"
+      run: echo "${{toJSON(github.event)}}"
